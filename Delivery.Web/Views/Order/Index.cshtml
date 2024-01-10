@@ -35,7 +35,7 @@ else
             {
                 <tr>
                     <td>
-                        @Html.ActionLink(order.Id.ToString(), "View", new { id = order.Id })
+                        @Html.ActionLink(order.Id.ToString(), "ViewOrder", new { id = order.Id })
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => order.SendersCity)

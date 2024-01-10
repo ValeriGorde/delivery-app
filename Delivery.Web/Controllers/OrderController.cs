@@ -60,10 +60,41 @@ namespace Delivery.Web.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpGet]
-        public async Task<IActionResult> View(Guid id)
+        public async Task<IActionResult> ViewOrder(Guid id)
         {
             var order = await _orderService.GetOrderById(id);
             return View(_mapper.Map<OrderViewModel>(order));
+        }
+
+        /// <summary>
+        /// Удаление заказа по id
+        /// </summary>
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _orderService.DeleteOrderById(id);
+            return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// Получение заказа для редактирования
+        /// </summary>
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            var orderDto = await _orderService.GetOrderById(id);
+            
+            return View(_mapper.Map<OrderViewModel>(orderDto));
+        }
+
+        public async Task<IActionResult> Edit(OrderViewModel order)
+        {
+            if (ModelState.IsValid)
+            {
+                await _orderService.UpdateOrder(_mapper.Map<OrderDTO>(order));
+                return RedirectToAction("Index");
+            }
+            return View(order);
         }
 
 

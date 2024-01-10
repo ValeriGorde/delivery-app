@@ -26,9 +26,16 @@ namespace Delivery.BLL.Contracts
             await _orderRepo.Add(order);
         }
 
-        public Task DeleteOrderById(Guid id)
+        public async Task DeleteOrderById(Guid id)
         {
-            throw new NotImplementedException();
+            if (id == Guid.Empty)
+                throw new NullReferenceException("Не установлено id заказа");
+
+            var order = await _orderRepo.GetById(id);
+            if (order == null)
+                throw new InvalidOperationException("Данный заказ не найден");
+
+            await _orderRepo.Delete(order);
         }
 
         public async Task<IEnumerable<OrderDTO>> GetAllOrders()
@@ -49,9 +56,25 @@ namespace Delivery.BLL.Contracts
             return _mapper.Map<OrderDTO>(order);
         }
 
-        public Task UpdateOrder(OrderDTO orderDto)
+        public async Task UpdateOrder(OrderDTO orderDto)
         {
-            throw new NotImplementedException();
+            if (orderDto == null)
+                throw new NullReferenceException("Не установлен заказ");
+
+            var orderDB = await _orderRepo.GetById(orderDto.Id);
+            if (orderDB == null)
+                throw new InvalidOperationException("Данный заказ не найден");
+
+            var order = _mapper.Map<Order>(orderDto);
+
+            orderDB.SendersCity = order.SendersCity;
+            orderDB.SendersAddress = order.SendersAddress;
+            orderDB.RecipientCity = orderDto.RecipientCity; ;
+            orderDB.RecipientAddress = orderDto.RecipientAddress;
+            orderDB.CargoWeight = orderDto.CargoWeight;
+            orderDB.DatePickup = orderDto.DatePickup;
+
+            await _orderRepo.Update(orderDB);
         }
     }
 }
