@@ -36,7 +36,7 @@ namespace Delivery.DAL.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<T>> GetAll()
+        public async Task<IEnumerable<T>> GetAll()
         {
             return await _dbSet.ToListAsync();
         }

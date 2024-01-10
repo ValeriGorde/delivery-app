@@ -1,9 +1,12 @@
+using AutoMapper;
+using Delivery.BLL.Contracts;
+using Delivery.BLL.Contracts.Interfaces;
 using Delivery.DAL.Data;
 using Delivery.DAL.Repositories;
 using Delivery.DAL.Repositories.Base;
 using Delivery.DAL.Repositories.Interfaces;
+using Delivery.Web.Mapping;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +23,16 @@ builder.Services
     .AddScoped<IOrderRepository, OrderRepository>();
 
 // Подключение сервисов
+builder.Services
+    .AddScoped<IOrderService, OrderService>();
 
+// Подключение маппинга
+var mappingConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MappingProfile());
+});
+IMapper mapper = mappingConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 
 var app = builder.Build();

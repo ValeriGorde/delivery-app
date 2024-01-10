@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Web", "Delivery.Web\Delivery.Web.csproj", "{860B74A5-AC9E-4839-BC19-D57772EF9061}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delivery.Web", "Delivery.Web\Delivery.Web.csproj", "{860B74A5-AC9E-4839-BC19-D57772EF9061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.DAL", "Delivery.DAL\Delivery.DAL.csproj", "{28D38844-92B1-41DB-A846-313D2D335F5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delivery.DAL", "Delivery.DAL\Delivery.DAL.csproj", "{28D38844-92B1-41DB-A846-313D2D335F5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.BLL", "Delivery.BLL\Delivery.BLL.csproj", "{E5779196-0A40-482E-A45A-23515DD06B12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{28D38844-92B1-41DB-A846-313D2D335F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28D38844-92B1-41DB-A846-313D2D335F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28D38844-92B1-41DB-A846-313D2D335F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5779196-0A40-482E-A45A-23515DD06B12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5779196-0A40-482E-A45A-23515DD06B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5779196-0A40-482E-A45A-23515DD06B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5779196-0A40-482E-A45A-23515DD06B12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
