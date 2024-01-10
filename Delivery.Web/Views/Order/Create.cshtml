@@ -1,0 +1,40 @@
+﻿@model Delivery.Web.Models.OrderViewModel
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-md-6 offset-md-3">
+            <form method="POST">
+                <legend>Создание нового заказа</legend>
+                <div class="mb-3">
+                    <label class="form-label">Город отправителя</label>
+                    <input asp-for="SendersCity" type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Адрес отправителя</label>
+                    <input asp-for="RecipientCity" type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Город получателя</label>
+                    <input asp-for="SendersAddress" type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Адрес получателя</label>
+                    <input asp-for="RecipientAddress" type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Вес груза</label>
+                    <input asp-for="CargoWeigth" type="number" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Дата забора груза</label>
+                    <input asp-for="DatePickup" type="datetime" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Добавить</button>
+                <div class="mb-3 pt-3">
+                    <a asp-controller="Order" asp-action="Index">Вернуться к списку заказов</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
