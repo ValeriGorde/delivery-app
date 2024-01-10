@@ -1,0 +1,60 @@
+﻿@model IEnumerable<OrderViewModel>
+@{
+    string title = "Список заказов";
+    ViewData["Title"] = title;
+}
+
+<h2>@title</h2>
+
+<a asp-controller="Order" asp-action="Create">
+    <i class="btn-light">
+        Создать новый заказ
+    </i>
+</a>
+
+@if (Model is null)
+{
+    <div>Заказы не найдены</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Идентификатор</th>
+                <th>Город отправителя</th>
+                <th>Адрес отправителя</th>
+                <th>Город получателя</th>
+                <th>Адрес получателя</th>
+                <th>Вес груза</th>
+                <th>Дата забора груза</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => order.SendersCity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => order.RecipientCity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => order.SendersAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => order.RecipientAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => order.CargoWeigth)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => order.DatePickup)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
