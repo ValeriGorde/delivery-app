@@ -7,6 +7,11 @@ namespace Delivery.DAL.Data
     {
         public DbSet<Order> Orders { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
             if (options is null)
@@ -15,9 +20,9 @@ namespace Delivery.DAL.Data
             }
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 }

@@ -9,7 +9,7 @@ namespace Delivery.DAL.Models
     /// <summary>
     /// Класс-модель для заказа
     /// </summary>
-    public class Order
+    public class Order: BaseModel
     {
         public string SendersCity { get; set; }
         public string RecipientCity { get; set; }
