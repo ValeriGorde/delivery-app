@@ -1,10 +1,9 @@
 ﻿@model IEnumerable<OrderViewModel>
 @{
-    string title = "Список заказов";
-    ViewData["Title"] = title;
+    ViewData["Title"] = "Order";
 }
 
-<h2>@title</h2>
+<h2>Список заказов</h2>
 
 <a asp-controller="Order" asp-action="Create">
     <i class="btn-light">
@@ -36,6 +35,9 @@ else
             {
                 <tr>
                     <td>
+                        @Html.ActionLink(order.Id.ToString(), "View", new { id = order.Id })
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => order.SendersCity)
                     </td>
                     <td>
@@ -48,7 +50,7 @@ else
                         @Html.DisplayFor(modelItem => order.RecipientAddress)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => order.CargoWeigth)
+                        @Html.DisplayFor(modelItem => order.CargoWeight)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => order.DatePickup)

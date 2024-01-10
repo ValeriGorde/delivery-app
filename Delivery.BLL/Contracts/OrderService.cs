@@ -37,7 +37,7 @@ namespace Delivery.BLL.Contracts
             return _mapper.Map<IEnumerable<OrderDTO>>(orders);
         }
 
-        public async Task<OrderDTO> GetOrder(Guid id)
+        public async Task<OrderDTO> GetOrderById(Guid id)
         {
             if (id == Guid.Empty)
                 throw new ArgumentNullException("Не установлено id заказа");

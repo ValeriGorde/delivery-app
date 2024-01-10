@@ -13,7 +13,7 @@ namespace Delivery.BLL.Models
         public string RecipientCity { get; set; }
         public string SendersAddress { get; set; }
         public string RecipientAddress { get; set; }
-        public int CargoWeigth { get; set; }
+        public int CargoWeight { get; set; }
         public DateTime DatePickup { get; set; }
     }
 }

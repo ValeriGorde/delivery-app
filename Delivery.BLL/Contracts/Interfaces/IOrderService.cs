@@ -10,7 +10,7 @@ namespace Delivery.BLL.Contracts.Interfaces
     public interface IOrderService
     {
         Task<IEnumerable<OrderDTO>> GetAllOrders();
-        Task<OrderDTO> GetOrder(Guid id);
+        Task<OrderDTO> GetOrderById(Guid id);
         Task CreateOrder(OrderDTO orderDto);
         Task DeleteOrderById(Guid id);
         Task UpdateOrder(OrderDTO orderDto);

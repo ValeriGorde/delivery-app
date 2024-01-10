@@ -55,5 +55,17 @@ namespace Delivery.Web.Controllers
         }
 
 
+        /// <summary>
+        /// Просмотр заказа по его id
+        /// </summary>
+        /// <param name="id"></param>
+        [HttpGet]
+        public async Task<IActionResult> View(Guid id)
+        {
+            var order = await _orderService.GetOrderById(id);
+            return View(_mapper.Map<OrderViewModel>(order));
+        }
+
+
     }
 }
