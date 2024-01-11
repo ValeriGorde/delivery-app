@@ -10,4 +10,3 @@ DeliveryApp - это ASP.NER Core (MVC) приложение для приемк
    dotnet restore
    dotnet ef database update
    dotnet run
-   ### Configuration
