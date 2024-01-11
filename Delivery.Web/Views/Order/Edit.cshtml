@@ -1,10 +1,13 @@
 ﻿@model Delivery.Web.Models.OrderViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
 
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-md-6 offset-md-3">
             <form method="POST">
-                <legend>Редактирование заказа</legend>
+                <h2>Редактирование заказа</h2> <br />
                 <div class="mb-3">
                     <label class="form-label">Город отправителя</label>
                     <input asp-for="SendersCity" type="text" class="form-control" />
@@ -29,9 +32,9 @@
                     <label class="form-label">Дата забора груза</label>
                     <input asp-for="DatePickup" type="date" class="form-control" />
                 </div>
-                <button type="submit" class="btn btn-primary">Добавить</button>
-                <div class="mb-3 pt-3">
-                    <a asp-controller="Order" asp-action="Index">Вернуться к списку заказов</a>
+                <div>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <a class="btn btn-danger" asp-action="Index">Вернуться</a>
                 </div>
             </form>
         </div>

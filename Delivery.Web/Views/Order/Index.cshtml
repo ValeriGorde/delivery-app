@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<OrderViewModel>
 @{
-    ViewData["Title"] = "Order";
+    ViewData["Title"] = "Orders";
 }
 
 <h2>Список заказов</h2>
 
-<a asp-controller="Order" asp-action="Create">
-    <i class="btn-light">
-        Создать новый заказ
-    </i>
-</a>
+<p style="text-align:right;">
+    <a class="btn btn-outline-primary" asp-asp-controller="Order" asp-action="Add">Создать новый заказ</a>
+</p>
 
 @if (Model is null)
 {
@@ -20,13 +18,30 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Идентификатор</th>
-                <th>Город отправителя</th>
-                <th>Адрес отправителя</th>
-                <th>Город получателя</th>
-                <th>Адрес получателя</th>
-                <th>Вес груза</th>
-                <th>Дата забора груза</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SendersCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SendersAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RecipientCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RecipientAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CargoWeight)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DatePickup)
+                </th>                
+                <th></th>
+                <th>Редактирование</th>
+                <th>Удаление</th>
             </tr>
         </thead>
 
@@ -35,7 +50,7 @@ else
             {
                 <tr>
                     <td>
-                        @Html.ActionLink(order.Id.ToString(), "ViewOrder", new { id = order.Id })
+                        @Html.ActionLink(order.Id.ToString(), "Details", new { id = order.Id })
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => order.SendersCity)
@@ -54,6 +69,15 @@ else
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => order.DatePickup)
+                    </td>
+                    <td>
+                    <td class="text-center">
+                        <a asp-controller="Order" asp-action="Edit" class="btn btn-outline-primary" asp-route-Id="@order.Id">Редактировать</a>
+                    </td>
+                    <td class="text-center">
+                        <form asp-controller="Order" asp-action="Delete" method="post" asp-route-id="@order.Id">
+                            <button type="submit" class="btn btn-outline-danger">Удалить</button>
+                        </form>
                     </td>
                 </tr>
             }

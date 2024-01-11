@@ -60,7 +60,7 @@ namespace Delivery.Web.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpGet]
-        public async Task<IActionResult> ViewOrder(Guid id)
+        public async Task<IActionResult> Details(Guid id)
         {
             var order = await _orderService.GetOrderById(id);
             return View(_mapper.Map<OrderViewModel>(order));
