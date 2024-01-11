@@ -2,6 +2,15 @@
 
 DeliveryApp - это ASP.NER Core (MVC) приложение для приемки заказа на доставку.
 
+## Технологии
+
+- Asp.Net Core Mvc
+- EF / Entity Framework
+- Code First
+- C#
+- SQLite
+- AutoMapper
+
 ## Запуск проекта
 
  ```shell
