@@ -1,5 +1,6 @@
 ﻿@model Delivery.Web.Models.OrderViewModel
 
+<div asp-validation-summary="ModelOnly"></div>
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-md-6 offset-md-3">
@@ -7,27 +8,33 @@
                 <legend>Создание нового заказа</legend>
                 <div class="mb-3">
                     <label class="form-label">Город отправителя</label>
-                    <input asp-for="SendersCity" type="text" class="form-control" />
+                    <input asp-for="SendersCity" type="text" class="form-control"/>
+                    <span asp-validation-for="SendersCity" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Адрес отправителя</label>
-                    <input asp-for="SendersAddress" type="text" class="form-control" />
+                    <input asp-for="SendersAddress" type="text" class="form-control"/>
+                    <span asp-validation-for="SendersAddress" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Город получателя</label>
-                    <input asp-for="RecipientCity" type="text" class="form-control" />
+                    <input asp-for="RecipientCity" type="text" class="form-control"/>
+                    <span asp-validation-for="RecipientCity" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Адрес получателя</label>
-                    <input asp-for="RecipientAddress" type="text" class="form-control" />
+                    <input asp-for="RecipientAddress" type="text" class="form-control"/>
+                    <span asp-validation-for="RecipientAddress" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Вес груза</label>
-                    <input asp-for="CargoWeight" type="number" class="form-control" />
+                    <input asp-for="CargoWeight" type="number" class="form-control"/>
+                    <span asp-validation-for="CargoWeight" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Дата забора груза</label>
-                    <input asp-for="DatePickup" type="date" class="form-control" />
+                    <input asp-for="DatePickup" type="date" class="form-control"/>
+                    <span asp-validation-for="DatePickup" class="text-danger"></span>
                 </div>
                 <button type="submit" class="btn btn-primary">Добавить</button>
                 <div class="mb-3 pt-3">

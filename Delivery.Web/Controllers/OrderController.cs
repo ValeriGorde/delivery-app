@@ -96,7 +96,5 @@ namespace Delivery.Web.Controllers
             }
             return View(order);
         }
-
-
     }
 }

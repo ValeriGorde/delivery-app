@@ -3,18 +3,18 @@ using Delivery.BLL.Models;
 using Delivery.DAL.Models;
 using Delivery.Web.Models;
 
-namespace Delivery.Web.Mapping
+namespace Delivery.Web.Services.Mapping
 {
     /// <summary>
     /// Настройка составления типов
     /// </summary>
-    public class MappingProfile: Profile
+    public class MappingProfile : Profile
     {
-        public MappingProfile() 
+        public MappingProfile()
         {
             CreateMap<OrderDTO, Order>().ReverseMap();
 
-            CreateMap<OrderDTO, OrderViewModel>().ReverseMap();            
+            CreateMap<OrderDTO, OrderViewModel>().ReverseMap();
         }
     }
 }

@@ -5,7 +5,7 @@ using Delivery.DAL.Data;
 using Delivery.DAL.Repositories;
 using Delivery.DAL.Repositories.Base;
 using Delivery.DAL.Repositories.Interfaces;
-using Delivery.Web.Mapping;
+using Delivery.Web.Services.Mapping;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,7 +33,6 @@ var mappingConfig = new MapperConfiguration(mc =>
 });
 IMapper mapper = mappingConfig.CreateMapper();
 builder.Services.AddSingleton(mapper);
-
 
 var app = builder.Build();
 
