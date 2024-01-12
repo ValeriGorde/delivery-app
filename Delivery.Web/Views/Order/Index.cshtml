@@ -75,9 +75,7 @@ else
                         <a asp-controller="Order" asp-action="Edit" class="btn btn-outline-primary" asp-route-Id="@order.Id">Редактировать</a>
                     </td>
                     <td class="text-center">
-                        <form asp-controller="Order" asp-action="Delete" method="post" asp-route-id="@order.Id">
-                            <button type="submit" class="btn btn-outline-danger">Удалить</button>
-                        </form>
+                        <a asp-controller="Order" asp-action="Delete" class="btn btn-outline-danger" asp-route-Id="@order.Id">Удалить</a>
                     </td>
                 </tr>
             }

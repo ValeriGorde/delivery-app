@@ -67,6 +67,23 @@ namespace Delivery.Web.Controllers
         }
 
         /// <summary>
+        /// Удаление заказа
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> Delete(Guid? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            var order = await _orderService.GetOrderById(id.Value);
+
+            return View(_mapper.Map<OrderViewModel>(order));
+
+        }
+
+        /// <summary>
         /// Удаление заказа по id
         /// </summary>
         [HttpPost]
@@ -75,6 +92,7 @@ namespace Delivery.Web.Controllers
             await _orderService.DeleteOrderById(id);
             return RedirectToAction("Index");
         }
+        
 
         /// <summary>
         /// Получение заказа для редактирования
@@ -87,6 +105,12 @@ namespace Delivery.Web.Controllers
             return View(_mapper.Map<OrderViewModel>(orderDto));
         }
 
+
+        /// <summary>
+        /// Редактирование заказа 
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Edit(OrderViewModel order)
         {
             if (ModelState.IsValid)

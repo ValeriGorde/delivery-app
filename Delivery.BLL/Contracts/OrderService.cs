@@ -29,7 +29,7 @@ namespace Delivery.BLL.Contracts
         public async Task DeleteOrderById(Guid id)
         {
             if (id == Guid.Empty)
-                throw new NullReferenceException("Не установлено id заказа");
+                throw new ArgumentNullException("Не установлено id заказа");
 
             var order = await _orderRepo.GetById(id);
             if (order == null)
@@ -59,7 +59,7 @@ namespace Delivery.BLL.Contracts
         public async Task UpdateOrder(OrderDTO orderDto)
         {
             if (orderDto == null)
-                throw new NullReferenceException("Не установлен заказ");
+                throw new ArgumentNullException("Не установлен заказ");
 
             var orderDB = await _orderRepo.GetById(orderDto.Id);
             if (orderDB == null)

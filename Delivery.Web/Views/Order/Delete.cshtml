@@ -1,0 +1,59 @@
+﻿@model Delivery.Web.Models.OrderViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container p-3 my-3 border">
+    <h1>Удаление заказа</h1>
+    <h3>Вы точно хотите удалить данный заказ?</h3>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.SendersCity)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.SendersCity)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.SendersAddress)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.SendersAddress)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.RecipientCity)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.RecipientCity)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.RecipientAddress)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.RecipientAddress)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CargoWeight)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CargoWeight)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.DatePickup)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.DatePickup)
+        </dd>
+    </dl>
+    <form asp-controller="Order" asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input class="btn btn-primary" type="submit" value="Да" />
+        <a class="btn btn-danger" asp-action="Index">Нет</a>
+    </form>
+</div>
